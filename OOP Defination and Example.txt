@@ -1,0 +1,170 @@
+Encapsulation: 
+
+Encapsulation is the mechanism that binds together code and the data it manipulates, and keeps both safe from outside interference and misuse, for example capsule i.e. mixed of several medicines. One way to think about encapsulation is as a protective wrapper that prevents the code and data from being arbitrarily accessed by other code defined outside the wrapper. Access to the code and data inside the wrapper is tightly controlled through a well-defined interface. e. To relate this to the real world, consider the automatic transmission on an automobile. It encapsulates hundreds of bits of information about your engine, such as how much you are accelerating, the pitch of the surface you are on, and the position of the shift lever. You, as the user, have only one method of affecting this complex encapsulation: by moving the gear-shift lever. You can’t affect the transmission by using the turn signal or windshield wipers, for example. Thus, the gear-shift lever is a well-defined (indeed, unique) interface to the transmission. Further, what occurs inside the transmission does not affect objects outside the transmission. For example, shifting gears does not turn on the headlights! Because an automatic transmission is encapsulated, dozens of car manufacturers can implement one in any way they please. However, from the driver’s point of view, they all work the same. This same idea can be applied to programming. The power of encapsulated code is that everyone knows how to access it and thus can use it regardless of the implementation details—and without fear of unexpected side effects.
+
+We can create a fully encapsulated class in java by making all the data members of the class private. Now we can use setter and getter methods to set and get the data in it.
+Advantage of Encapsulation
+By providing only setter or getter method, you can make the class read-only or write-only.
+It provides you the control over the data. Suppose you want to set the value of id i.e. greater than 100 only, you can write the logic inside the setter method.
+
+Example of Encapsulation:
+
+package com;
+
+public class Encapsulation {
+	
+	private double Standard;
+	private double OAP;
+	private double Student;
+	private double Child;
+	public double getStandard() {
+		return Standard;
+	}
+	public void setStandard(double standard) {
+		Standard = standard;
+	}
+	public double getOAP() {
+		return OAP;
+	}
+	public void setOAP(double oAP) {
+		OAP = oAP;
+	}
+	public double getStudent() {
+		return Student;
+	}
+	public void setStudent(double student) {
+		Student = student;
+	}
+	public double getChild() {
+		return Child;
+	}
+	public void setChild(double child) {
+		Child = child;
+	}
+	
+
+}
+
+package com;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Encapsulation encap = new Encapsulation();
+
+		encap.setStandard(5);
+
+		System.out.println(encap.getStandard());
+	}
+}
+
+
+Inheritance:
+
+Inheritance is the process by which one object acquires the properties of another object. This is important because it supports the concept of hierarchical classification.
+The idea behind inheritance in java is that you can create new classes that are built upon existing classes. When you inherit from an existing class, you can reuse methods and fields of parent class, and you can add new methods and fields also.
+Inheritance represents the IS-A relationship, also known as parent-child relationship.
+We use inheritance because of Method Overriding and Code Reusability.
+We use extends keyword for making a new class from an existing class.
+The extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.
+In the terminology of Java, a class which is inherited is called parent or super class and the new class is called child or subclass.
+Example:
+public class Inheritance {
+	double student = 6;
+}
+public class Main extends Inheritance {
+	
+	double child = 4;
+
+	public static void main(String[] args) {
+		
+		Main mainbobj = new Main();
+		
+		System.out.println("Student Ticket Price" +mainbobj.student);
+		System.out.println("Child Ticket Price" +mainbobj.child);
+		
+	}
+}
+In the above example, Main class object can access the field of own class as well as of Inheritance class i.e. code reusability.
+
+Polymorphism
+
+Polymorphism (from Greek, meaning “many forms”) is a feature that allows one interface to be used for a general class of actions. The specific action is determined by the exact nature of the situation. Consider a stack (which is a last-in, first-out list). You might have a program that requires three types of stacks. One stack is used for integer values, one for floatingpoint values, and one for characters. The algorithm that implements each stack is the same, even though the data being stored differs. In a non–object-oriented language, you would be required to create three different sets of stack routines, with each set using different names. However, because of polymorphism, in Java you can specify a general set of stack routines that all share the same names.
+More generally, the concept of polymorphism is often expressed by the phrase “one interface, multiple methods.” This means that it is possible to design a generic interface to a group of related activities. This helps reduce complexity by allowing the same interface to be used to specify a general class of action. It is the compiler’s job to select the specific action (that is, method) as it applies to each situation. You, the programmer, do not need to make this selection manually. You need only remember and utilize the general interface. Extending the dog analogy, a dog’s sense of smell is polymorphic. If the dog smells a cat, it will bark and run after it. If the dog smells its food, it will salivate and run to its bowl. The same sense of smell is at work in both situations. The difference is what is being smelled, that is, the type of data being operated upon by the dog’s nose! This same general concept can be implemented in Java as it applies to methods within a Java program.
+
+Example
+public interface Vegetarian{}
+public class Animal{}
+public class Tiger extends Animal implements Vegetarian{}
+
+Now, the Deer class is considered to be polymorphic since this has multiple inheritance. Following are true for the above examples −
+A Tiger IS-A Animal
+A Tiger IS-A Vegetarian
+A Tiger IS-A Tiger 
+A Tiger IS-A Object
+
+Abstraction:
+An essential element of object-oriented programming is abstraction. Humans manage complexity through abstraction. For example, people do not think of a car as a set of tens of thousands of individual parts. They think of it as a well-defined object with its own unique behavior. This abstraction allows people to use a car to drive to the grocery store without being overwhelmed by the complexity of the parts that form the car. They can ignore the details of how the engine, transmission, and braking systems work. Instead, they are free to utilize the object as a whole. A powerful way to manage abstraction is through the use of hierarchical classifications. This allows you to layer the semantics of complex systems, breaking them into more manageable pieces. From the outside, the car is a single object. Once inside, you see that the car consists of several subsystems: steering, brakes, sound system, seat belts, heating, cellular phone, and so on. In turn, each of these subsystems is made up of more specialized units. For instance, the sound system consists of a radio, a CD player, and/or a tape or MP3 player. The point is that you manage the complexity of the car (or any other complex system) through the use of hierarchical abstractions. Hierarchical abstractions of complex systems can also be applied to computer programs. The data from a traditional process-oriented program can be transformed by abstraction into its component objects. A sequence of process steps can become a collection of messages between these objects. Thus, each of these objects describes its own unique behavior. You can treat these objects as concrete entities that respond to messages telling them to do something. This is the essence of object-oriented programming. Object-oriented concepts form the heart of Java just as they form the basis for human understanding. It is important that you understand how these concepts translate into programs. As you will see, object-oriented programming is a powerful and natural paradigm for creating programs that survive the inevitable changes accompanying the life cycle of any major software project, including conception, growth, and aging. For example, once you have well-defined objects and clean, reliable interfaces to those objects, you can gracefully decommission or replace parts of an older system without fear.
+Example
+To create an abstract class, just use the abstract keyword before the class keyword, in the class declaration.
+* File name : Student.java */
+public abstract class Student {
+   private String name;
+   private String class;
+   private int roll;
+
+   public Student(String name, String class, int roll) {
+      System.out.println("Constructing an Employee");
+      this.name = name;
+      this.class = class;
+      this.roll = roll;
+   }
+   
+   public double computePay() {
+     System.out.println("Inside Student computePay");
+     return 0.0;
+   }
+   
+   public void mailCheck() {
+      System.out.println("Mailing a check to " + this.name + " " + this.class);
+   }
+
+   public String toString() {
+      return name + " " + class+ " " + roll;
+   }
+
+   public String getName() {
+      return name;
+   }
+ 
+   public String getClass() {
+      return class;
+   }
+   
+   public void setClass(String newClass) {
+      class= newClass;
+   }
+ 
+   public int getRoll() {
+      return roll;
+   }
+}
+
+You can observe that except abstract methods the Student class is same as normal class in Java. The class is now abstract, but it still has three fields, seven methods, and one constructor.
+Now you can try to instantiate the Student class in the following way −
+/* File name : AbstractExample.java */
+public class AbstractExample {
+
+   public static void main(String [] args) {
+      /* Following is not allowed and would raise error */
+      Student e = new Student ("Alex", "Seven", 43);
+      System.out.println("\n Call mailCheck using Student reference--");
+      e.mailCheck();
+   }
+}
+
+
+
+
+
+
